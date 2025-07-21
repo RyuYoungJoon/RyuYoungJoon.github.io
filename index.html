@@ -17,8 +17,8 @@
 
 <h2>💼 주요 이력</h2>
 <ul>
-  <li><strong>2023.11 ~ 현재</strong> <br> 엔픽셀 - 그랑사가 스튜디오 / 라이브본부 개발유닛 서버셀</li>
   <li><strong>2017.03 ~ 2023.02</strong> <br>한국공학대학교(구 한국산업기술대학교) 게임공학과 재학</li>
+  <li><strong>2023.11 ~ 2025.05.31</strong> <br> 엔픽셀 - 그랑사가 스튜디오 / 라이브본부 개발유닛 서버셀</li>
 </ul>
 <hr>
 
@@ -40,8 +40,9 @@
 <h3>프로젝트 개요</h3>
 <ul>
   <li><strong>Boost.Asio 라이브러리를 이용한 채팅서버 만들기</strong></li>
-  <li style="font-size:12px;">프로젝트 기간 : 2024.12 ~ 진행중</li>
+  <li style="font-size:12px;">프로젝트 기간 : 2025.01 ~ 2025.07</li>
   <li style="font-size:12px;">Github : <a href="https://github.com/RyuYoungJoon/ProjectYJ"> https://github.com/RyuYoungJoon/ProjectYJ</a></li>
+  <li style="font-size:12px;">프로젝트 상세 문서 : <a href="https://www.notion.so/237645fdb1fd8003ad86d02aa3d02d21?source=copy_link">프로젝트 상세 문서 보기</a></li>
 </ul>
 
 <h3>ServerCore 구조</h3>
@@ -57,11 +58,10 @@
 
 <h3>GameServer 구조</h3>
 <ul>
-  <li>ServerCore 엔진을 기반으로 실질적인 게임 서버 기능 확장</li>
-  <li><strong>패킷 프로토콜</strong> 설계</li>
-  <li><strong>메모리 누수 감지 및 방지</strong></li>
+  <li><strong>Google Protobuf를 통한 패킷 프로토콜</strong> 설계</li>
+  <li><strong>패킷 자동화</strong> 툴 개발</li>
+  <li><strong>메모리 누수</strong> 감지 및 방지</li>
   <li>로그인, 로비, 채팅 시스템 개발</li>
-  <li>실제 <strong>스트레스 테스트</strong>를 통한 다중 접속 검증</li>
 </ul>
 <p style="font-size:14px;">
   📌 자세한 내용: <a href="https://www.notion.so/GameServer-1e1645fdb1fd80e282dced8dbce45783?pvs=4">GameServer 구조 문서</a>
@@ -70,24 +70,21 @@
 <h3>Client 구조</h3>
 <ul>
   <li>WinApi를 이용한 클라이언트 구현</li>
-  <li>ClientSession 객체를 통한 패킷 송수신</li>
   <li>ClientManager를 통한 유저 관리 로직 구성</li>
-  <li>내부 테스트용 클라이언트로 기능 검증 수행</li>
 </ul>
 
-<h3>로그 시스템 및 설정 관리</h3>
+<h3>로그 시스템 및 Config 관리</h3>
 <ul>
   <li><strong>서버 디버깅과 모니터링</strong>을 위한 설정 관리 및 로그 출력 시스템</li>
-  <li><strong>Plog 외부 라이브러리</strong> 기반 컬러 로그 출력 (Thread-safe 지원)</li>
+  <li><strong>Plog 외부 라이브러리</strong> 기반 콘솔 로그와 파일 로그 동시 출력 및 저장</li>
   <li>INIReader 외부 라이브러리를 통한 Config 파일 로딩</li>
 </ul>
 
 <h3>간단한 스트레스 테스트</h3>
 <ul>
   <li>ClientSession 객체를 통한 서버 연결 및 패킷 송수신</li>
-  <li>ClientManager를 통한 가상 유저 관리</li>
-  <li>10개 스레드 × 스레드당 100개 소켓 연결 테스트</li>
-  <li>자동 로그인 → 채팅 전송 → 디스커넥트 시나리오 반복 구현</li>
+  <li>하나의 프로세스에서 10개 스레드 × 스레드당 100개 소켓 연결 테스트</li>
+  <li>자동 로그인 → 채팅 전송 → 연결 종료 시나리오 반복 구현</li>
 </ul>
 <p style="font-size:14px;">
   📌 자세한 내용: <a href="https://www.notion.so/StressTest-1e3645fdb1fd80a79eb5c24e47157a8c?pvs=4">StressTest 문서</a>
