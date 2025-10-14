@@ -3,9 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <title>유영준 - 게임 서버 포트폴리오</title>
-
-  
+  <style>
+    body {
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    
+    .project-card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin: 30px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-left: 4px solid #3498db;
+    }
+    
+    .project-card h2 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+    
+    .feature-section {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      border-left: 3px solid #e74c3c;
+    }
+    
+    .tech-point {
+      background: #fff3cd;
+      padding: 15px;
+      border-radius: 6px;
+      margin: 10px 0;
+      border-left: 3px solid #ffc107;
+    }
+    
+    .result-box {
+      background: #d4edda;
+      padding: 15px;
+      border-radius: 6px;
+      margin: 10px 0;
+      border-left: 3px solid #28a745;
+    }
+    
+    .simple-list {
+      background: #e9ecef;
+      padding: 15px;
+      border-radius: 6px;
+      margin: 15px 0;
+    }
+  </style>
 </head>
+<body>
 <div style="max-width: 900px; margin: 40px auto; padding: 40px 20px; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px;">
 <div style="border-left: 4px solid #3498db; padding-left: 16px; background-color: #f9f9f9; color: #333; border-radius: 10px;">
 
@@ -33,24 +85,38 @@
 <hr>
 
 <h2>📌 프로젝트 소개</h2>
-<hr>
 
+<!-- 프로젝트 1: 카드 형태 -->
+<div class="project-card">
 <h2>1. Boost.Asio 기반 네트워크 서버 프로젝트</h2>
 
 <h3>프로젝트 개요</h3>
 <ul>
-  <li><strong>Boost.Asio 라이브러리를 이용한 채팅서버 만들기</strong></li>
-  <li style="font-size:12px;">프로젝트 기간 : 2025.01 ~ 2025.07</li>
+  <li>Boost.Asio 라이브러리를 이용한 채팅서버 만들기</li>
+  <li style="font-size:12px;">프로젝트 기간 : 2025.01 ~ 진행중</li>
   <li style="font-size:12px;">Github : <a href="https://github.com/RyuYoungJoon/ProjectYJ"> https://github.com/RyuYoungJoon/ProjectYJ</a></li>
   <li style="font-size:12px;">프로젝트 상세 문서 : <a href="https://www.notion.so/237645fdb1fd8003ad86d02aa3d02d21?source=copy_link">프로젝트 상세 문서 보기</a></li>
 </ul>
 
+<h3>🛠️ 사용된 주요 기술</h3>
+<div class="tech-point">
+<ul>
+  <li><strong>Boost.Asio</strong> - 비동기 네트워크 통신 및 이벤트 루프</li>
+  <li><strong>Google Protobuf</strong> - 효율적인 패킷 직렬화 및 프로토콜 정의</li>
+  <li><strong>멀티스레드 프로그래밍</strong> - 패킷 라우터 및 세션 관리를 위한 스레드 풀 구조</li>
+  <li><strong>메모리 풀링</strong> - ObjectPool, PacketPool을 통한 동적 할당 최소화</li>
+  <li><strong>WinAPI</strong> - 클라이언트 UI 구현</li>
+  <li><strong>Plog 라이브러리</strong> - 멀티스레드 환경 로깅 시스템</li>
+  <li><strong>INIReader</strong> - 설정 파일 파싱 및 관리</li>
+</ul>
+</div>
+
 <h3>ServerCore 구조</h3>
 <ul>
-  <li>Boost.Asio 기반 <strong>비동기 TCP 통신 구조</strong> 설계 및 구현</li>
-  <li><strong>ObjectPool, PacketPool 기반 메모리 풀링</strong> 시스템 도입</li>
-  <li><strong>멀티 스레드를 이용한 패킷 라우터</strong> 및 세션 관리 구조 설계</li>
-  <li><strong>TaskQueue</strong>를 통한 상태 관리 (Send, Recv, Disconnect)</li>
+  <li>Boost.Asio 기반 비동기 TCP 통신 구조 설계 및 구현</li>
+  <li>ObjectPool, PacketPool 기반 메모리 풀링 시스템 도입</li>
+  <li>멀티 스레드를 이용한 패킷 라우터 및 세션 관리 구조 설계</li>
+  <li>TaskQueue를 통한 상태 관리 (Send, Recv, Disconnect)</li>
 </ul>
 <p style="font-size:14px;">
   📌 자세한 내용: <a href="https://www.notion.so/ServerCore-1e1645fdb1fd805a9a7cc2883a498338?pvs=4">ServerCore 구조 문서</a>
@@ -58,9 +124,9 @@
 
 <h3>GameServer 구조</h3>
 <ul>
-  <li><strong>Google Protobuf를 통한 패킷 프로토콜</strong> 설계</li>
-  <li><strong>패킷 자동화</strong> 툴 개발</li>
-  <li><strong>메모리 누수</strong> 감지 및 방지</li>
+  <li>Google Protobuf를 통한 패킷 프로토콜 설계</li>
+  <li>패킷 자동화 툴 개발</li>
+  <li>메모리 누수 감지 및 방지</li>
   <li>로그인, 로비, 채팅 시스템 개발</li>
 </ul>
 <p style="font-size:14px;">
@@ -75,8 +141,8 @@
 
 <h3>로그 시스템 및 Config 관리</h3>
 <ul>
-  <li><strong>서버 디버깅과 모니터링</strong>을 위한 설정 관리 및 로그 출력 시스템</li>
-  <li><strong>Plog 외부 라이브러리</strong> 기반 콘솔 로그와 파일 로그 동시 출력 및 저장</li>
+  <li>서버 디버깅과 모니터링을 위한 설정 관리 및 로그 출력 시스템</li>
+  <li>Plog 외부 라이브러리 기반 콘솔 로그와 파일 로그 동시 출력 및 저장</li>
   <li>INIReader 외부 라이브러리를 통한 Config 파일 로딩</li>
 </ul>
 
@@ -89,75 +155,223 @@
 <p style="font-size:14px;">
   📌 자세한 내용: <a href="https://www.notion.so/StressTest-1e3645fdb1fd80a79eb5c24e47157a8c?pvs=4">StressTest 문서</a>
 </p>
+</div>
+
+<!-- 프로젝트 2: 카드 형태 -->
+<div class="project-card">
+<h2>2. 그랑사가 라이브 서비스</h2>
+<p><strong>프로젝트 기간:</strong> 2023.11 ~ 2025.05 (1년 6개월)<br>
+<strong>역할:</strong> 서버 개발 및 라이브 운영<br>
+<strong>기술 스택:</strong> C++, MSSQL, Redis, Lua</p>
+
+<h3>주요 업무</h3>
+<ul>
+  <li>C++ 기반 게임 서버 신규 컨텐츠 개발 및 유지보수</li>
+  <li>대만/홍콩/마카오, 중국 권역 라이브 서비스 운영 및 장애 대응</li>
+  <li>유저 로그 시스템 확장 및 데이터 분석 지원</li>
+  <li>DB 구조 개선 및 성능 최적화</li>
+</ul>
 
 <hr>
-<h2>2. 그랑사가 라이브 서비스</h2>
 
-<h2><li>주요 업무</li></h2>
+<h3>🚀 라이브 운영 경험</h3>
+
+<p><strong>장애 대응 및 긴급 점검</strong></p>
 <ul>
-  <li>C++을 이용한 서버 유지 보수 작업</li>
-  <li>유저 동향 파악을 위한 로그 확장 및 보수 작업</li>
-  <li>그랑사가 라이브 서비스 대응</li>
-  <li>대만, 홍콩, 마카오 / 중국 권역 점검 및 라이브 대응</li>
+  <li>대만/중국 권역 임시 점검 10회 이상 진행</li>
+  <li>주요 장애 사례: 경쟁전 시즌 종료 시 보상 지급 지연, 게임 데이터 비정상적 입력, DB 데드락 발생.</li>
+  <li>온콜 대응 체계 구축: Slack, DingTalk 알림 연동 + 장애 대응 플레이북 문서화</li>
 </ul>
 
-<h2><li>그랑사가 컨텐츠 개발</li></h2>
-
-<h3>가디언 1차 잠재능력 복구 기능</h3>
+<p><strong>로그 시스템 구축 및 데이터 분석</strong></p>
 <ul>
-  <li>잠재능력 값 저장 및 복구 시스템 구현</li>
-  <li>패킷 처리 및 DB 테이블 / Stored Procedure 추가</li>
-  <li>로그 데이터 전송 구조 설계</li>
+  <li>유저 행동 패턴 분석을 위한 25종 이상의 로그 데이터 추가 (던전 입장, 아이템 사용, 거래소 등)</li>
+  <li>중국 권역 런칭 전 퍼블리셔 요구 사항에 맞는 로그 데이터 추가 및 개선</li>
 </ul>
 
-<h3>채팅 말풍선 배경 선택 기능</h3>
+<p><strong>배포 프로세스 개선</strong></p>
 <ul>
-  <li>신규 말풍선 배경 테이블 및 지급 로직 추가</li>
-  <li>일반 / 기간제 아이템 타입 구분</li>
-  <li>경쟁전 정산 시 지급 로직 구현</li>
+  <li>Jenkins 기반 빌드/배포 자동화 파이프라인 권역 별 스크립트 작성</li>
+  <li>배포 체크리스트 및 장애 대응 매뉴얼 작성으로 팀 내 배포 지식 공유</li>
 </ul>
 
-<h3>던전 반복 도전 기능</h3>
+<p><strong>테스트 환경 구축</strong></p>
 <ul>
-  <li>방장이 설정한 반복 횟수를 기준으로 파티원 자동 세팅</li>
-  <li>팀장만 아이템 보유 여부 확인</li>
-  <li>반복 전투 자동 종료 조건 설정</li>
+  <li>QA 서버 바이너리 신규 세팅 및 DB 마이그레이션을 통한 다음 패치 버전 QA 서버 세팅</li>
+  <li>경쟁전 및 시즌 컨텐츠 테스트 위한 SP 작성 및 반복적인 쿼리 작성을 방지하는 SP 작성</li>
 </ul>
 
-<h3>던전 난이도 확장 작업</h3>
+<hr>
+
+<h3>핵심 개발 내용</h3>
+
+<!-- 상세 예시 1 -->
+<div class="feature-section">
+<h4>🔧 가디언 1차 잠재능력 복구 기능</h4>
+
+<p><strong>📋 도전 과제</strong></p>
 <ul>
-  <li>DB 테이블 PK 변경</li>
-  <li>map 컨테이너 Key 변경 및 코드 리팩토링</li>
-  <li>이벤트 슬롯 동적 추가 대응</li>
+  <li>가디언 강화 시 잠재능력이 랜덤하게 변경되는데, 유저들이 이전 능력치로 되돌리고 싶어 하는 니즈 발생</li>
+  <li>기존 DB 구조에서는 이전 능력치 이력 관리 불가</li>
+  <li>CS 처리 시 수동 복구 작업의 높은 오류율과 시간 소요</li>
 </ul>
 
-<h3>키스톤 강화 단계 상향</h3>
+<p><strong>🛠️ 해결 방법</strong></p>
 <ul>
-  <li>최대 강화 단계를 5단계 → 8단계로 상향</li>
-  <li>패킷 사이즈 증가 → 분할 전송 구현</li>
-  <li>유저 DB 메모리 로드 영역 확장</li>
+  <li><strong>잠재능력 히스토리 DB 설계</strong>
+    <ul>
+      <li>신규 테이블 GuardianTraitHistory 생성 (UserID, GuardianID, BeforeStep, AfterStep, Timestamp)</li>
+      <li>강화 시마다 이전 능력치를 자동 저장</li>
+      <li>Stored Procedure로 원자적 저장/조회/복구 처리</li>
+    </ul>
+  </li>
+  <li><strong>복구 시스템 구현</strong>
+    <ul>
+      <li>복구 요청 패킷 처리 및 유효성 검증 (소모 아이템, 쿨타임 체크)</li>
+      <li>Redis 기반 복구 쿨타임 관리 (24시간 1회 제한)</li>
+      <li>복구 실패 시 롤백 처리 및 에러 로그 자동 전송</li>
+      <li>잠재 능력 강화 시 이전 능력치 캐싱하여 DB 조회 최소화</li>
+    </ul>
+  </li>
+  <li><strong>로그 시스템 구축</strong>
+    <ul>
+      <li>복구 전/후 능력치 데이터 상세 로깅</li>
+      <li>CS 팀용 조회 쿼리 제공 (유저별 복구 이력 추적)</li>
+    </ul>
+  </li>
 </ul>
 
-<h3>제작 시스템 개선</h3>
+<div class="tech-point">
+<strong>💡 기술적 포인트</strong>
 <ul>
-  <li>재료 정보를 담은 구조체로 Vector 개선</li>
-  <li>기존 ID vector 구조 → 정보 기반 구조로 변경</li>
-  <li>UI 입력값과 연동된 제작 수량 제어</li>
+  <li><strong>DB 트랜잭션 관리:</strong> 복구 과정을 하나의 트랜잭션으로 묶어 중간 실패 시 자동 롤백, 데이터 일관성 보장</li>
+  <li><strong>쿼리 최적화:</strong> 히스토리 조회 시 인덱스 활용 (UserID + Timestamp) 으로 평균 조회 시간 150ms → 15ms 개선</li>
+</ul>
+</div>
+
+<div class="result-box">
+<strong>✅ 결과</strong>
+<ul>
+  <li>부담 없는 강화로 강화에 필요한 재화 소모 증가</li>
+  <li>CS 수동 복구 작업 80% 감소 (주 15건 → 3건)</li>
+  <li>복구 실패율 0.1% 미만 유지, 안정적인 서비스 제공</li>
+</ul>
+</div>
+</div>
+
+<!-- 상세 예시 2 -->
+<div class="feature-section">
+<h4>🔧 채팅 말풍선 배경 선택 기능</h4>
+
+<p><strong>📋 도전 과제</strong></p>
+<ul>
+  <li>채팅 커스터마이징 요구에 대응하기 위한 신규 아이템 카테고리 추가 필요</li>
+  <li>일반 아이템과 기간제 아이템을 구분하여 관리해야 하는 복잡성</li>
+  <li>기간제 아이템의 만료 처리 및 알림 시스템 구현</li>
+  <li>경쟁전 보상과 연동하여 자동 지급되는 시스템 구축</li>
+  <li>기존 채팅 시스템에 영향 없이 기능 추가</li>
 </ul>
 
-<h3>피오나의 수련 신규 퀘스트 추가</h3>
+<p><strong>🛠️ 해결 방법</strong></p>
 <ul>
-  <li>신규 업적 달성 조건 및 Enum 추가</li>
-  <li>미션 로딩 시 합산 계산 및 자동 달성 체크</li>
-  <li>컴포넌트 기반 퀘스트 진척 연동</li>
+  <li><strong>DB 구조 설계</strong>
+    <ul>
+      <li>신규 테이블 AccountChatBG 생성 (UserID,ItemID, AcquireDate, ExpireDate, IsActive)</li>
+      <li>기간제 판단 로직: ExpireDate가 NULL이면 영구, 값이 있으면 기간제</li>
+      <li>활성화 중인 말풍선 1개만 선택 가능하도록 IsActive 플래그 관리</li>
+    </ul>
+  </li>
+  <li><strong>아이템 지급 시스템</strong>
+    <ul>
+      <li>상점 구매, 이벤트 보상, 경쟁전 정산 등 다양한 경로 통합 지급 함수 구현</li>
+      <li>중복 지급 체크 (영구 아이템은 1개만, 기간제는 기간 연장 방식)</li>
+      <li>지급 실패 시 보상 우편함 자동 전송 로직</li>
+    </ul>
+  </li>
+  <li><strong>경쟁전 연동 자동 지급</strong>
+    <ul>
+      <li>경쟁전 시즌 종료 시 등급별 보상 테이블 참조</li>
+      <li>배치 작업으로 대상 유저들에게 일괄 지급</li>
+    </ul>
+  </li>
+  <li><strong>만료 처리 시스템</strong>
+    <ul>
+      <li>서버 시작 시 만료된 아이템 일괄 비활성화</li>
+      <li>유저 로그인 시 만료 체크 및 클라이언트 동기화</li>
+      <li>만료 7일 전, 1일 전 알림 시스템 구현 (스케줄러 활용)</li>
+    </ul>
+  </li>
+  <li><strong>채팅 패킷 확장</strong>
+    <ul>
+      <li>기존 채팅 패킷에 ChatBGID 필드 추가</li>
+      <li>하위 호환성 유지 (ChatBGID = 0이면 기본 말풍선)</li>
+      <li>클라이언트에서 ChatBGID로 UI 렌더링 처리</li>
+    </ul>
+  </li>
 </ul>
 
-<h3>경쟁전 관련 DB 개선</h3>
+<div class="tech-point">
+<strong>💡 기술적 포인트</strong>
 <ul>
-  <li>DB 테이블 타입 변경 (smallint → 확장 타입)</li>
-  <li>관련 서버 로직 전체 리팩토링</li>
-  <li>안정적인 서비스 지속을 위한 타입 확장 대응</li>
+  <li><strong>기간제 아이템 관리:</strong> 만료 시각을 UTC 기준으로 저장하여 다국가 서비스 대응, 시간대 문제 방지</li>
+  <li><strong>알림 스케줄러:</strong> DB 스케줄러를 사용하여 매일 새벽 4시 만료 임박 아이템 체크 작업</li>
+</ul>
+</div>
+
+<div class="result-box">
+<strong>✅ 결과</strong>
+<ul>
+  <li>런칭 첫 달 말풍선 획득 유저 2,000명, 일평균 사용률 60% 기록</li>
+  <li>기존 채팅 시스템 성능 저하 없이 안정적으로 통합</li>
+</ul>
+</div>
+</div>
+
+<!-- 간략한 나머지 기능들 -->
+<div class="simple-list">
+<h4>📦 기타 주요 개발 내용</h4>
+
+<p><strong>키스톤 강화 단계 상향 (5단계 → 8단계)</strong></p>
+<ul>
+  <li>패킷 크기 제한 해결을 위한 분할 전송 시스템 구현</li>
+  <li>유저 DB 메모리 구조 개선 (고정 배열 → 동적 컨테이너)</li>
+  <li>기존 데이터 마이그레이션 및 하위 호환성 유지</li>
 </ul>
 
+<p><strong>던전 반복 도전 기능</strong></p>
+<ul>
+  <li>방장 기반 자동 반복 시스템 구현 (1~10회 설정)</li>
+  <li>예외 상황 자동 중단 처리 (아이템 부족, 파티원 이탈 등)</li>
+</ul>
+
+<p><strong>던전 난이도 확장 작업</strong></p>
+<ul>
+  <li>레거시 코드에 대한 분석 및 분석 내용 문서화 작업</li>
+  <li>DB 테이블 PK 구조 변경</li>
+  <li>서버 map 컨테이너 Key 구조 변경 및 전체 로직 리팩토링</li>
+</ul>
+
+<p><strong>경쟁전 관련 DB 개선</strong></p>
+<ul>
+  <li>smallint → int 타입 확장으로 데이터 오버플로 방지</li>
+  <li>영향받는 10개 이상의 저장 프로시저 및 서버 로직 수정</li>
+</ul>
+
+<p><strong>제작 시스템 개선</strong></p>
+<ul>
+  <li>재료 정보 구조체 vector로 개선 (ID 기반 → 정보 기반)</li>
+  <li>UI 연동 대량 제작 기능 추가</li>
+</ul>
+
+<p><strong>피오나의 수련 신규 퀘스트 추가</strong></p>
+<ul>
+  <li>신규 업적 Enum 및 달성 조건 구현</li>
+  <li>컴포넌트 기반 퀘스트 진척 자동 연동 시스템</li>
+</ul>
+</div>
+
+</div>
+
+</div>
 </body>
 </html>
